@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 553395139}
   - component: {fileID: 553395138}
   - component: {fileID: 553395137}
+  - component: {fileID: 553395140}
   m_Layer: 5
   m_Name: NameInput
   m_TagString: Untagged
@@ -515,7 +516,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 553395140}
+        m_TargetAssemblyTypeName: InputFieldGrabber, Assembly-CSharp
+        m_MethodName: GrabFromImputField
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -590,6 +603,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553395135}
   m_CullTransparentMesh: 1
+--- !u!114 &553395140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553395135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f3515f890284290aab91d79650fa7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputText: 
+  reactionTextBox: {fileID: 560217299}
 --- !u!1 &560217297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 974483047}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1604342892}
+        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+        m_MethodName: StartNew
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &974483047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,6 +1387,7 @@ GameObject:
   - component: {fileID: 1604342890}
   - component: {fileID: 1604342889}
   - component: {fileID: 1604342888}
+  - component: {fileID: 1604342892}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1440,6 +1480,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1604342892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604342887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd4e2c18307c471bb0be0db5978343c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1741364630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1710,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2104116825}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1604342892}
+        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &2104116825
 MonoBehaviour:
   m_ObjectHideFlags: 0
