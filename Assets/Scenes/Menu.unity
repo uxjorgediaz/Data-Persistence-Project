@@ -426,7 +426,6 @@ GameObject:
   - component: {fileID: 553395139}
   - component: {fileID: 553395138}
   - component: {fileID: 553395137}
-  - component: {fileID: 553395140}
   m_Layer: 5
   m_Name: NameInput
   m_TagString: Untagged
@@ -517,10 +516,10 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 553395140}
-        m_TargetAssemblyTypeName: InputFieldGrabber, Assembly-CSharp
-        m_MethodName: GrabFromImputField
-        m_Mode: 0
+      - m_Target: {fileID: 1604342892}
+        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+        m_MethodName: GetInputField
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -603,20 +602,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553395135}
   m_CullTransparentMesh: 1
---- !u!114 &553395140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553395135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f3515f890284290aab91d79650fa7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputText: 
-  reactionTextBox: {fileID: 560217299}
 --- !u!1 &560217297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1360,51 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1550807072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550807074}
+  - component: {fileID: 1550807075}
+  m_Layer: 0
+  m_Name: DataPasser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1550807074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550807072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 367, y: 671, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550807075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550807072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd29e56c984645459094c01a3dabb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
 --- !u!1 &1604342887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd4e2c18307c471bb0be0db5978343c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 553395137}
 --- !u!1 &1741364630
 GameObject:
   m_ObjectHideFlags: 0
