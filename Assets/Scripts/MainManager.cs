@@ -29,6 +29,8 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadData();
+        MaxScore(playerNameHighScore, maximoHigthScore);
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -49,8 +51,9 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-        MaxScore(playerName, maximoHigthScore);
-
+      
+        
+        
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -66,7 +69,7 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
-
+            PlayerNameAndScore();
             if (Input.GetKeyDown(KeyCode.Space))
 
             {
@@ -99,17 +102,18 @@ public class MainManager : MonoBehaviour
     class SaveData
     {
         public string playerName;
-        public int maxPoints = 0;
+        public int maxPoints;
 
     }
     public void PlayerNameAndScore()
 
     {
+        
 
         SaveData data = new SaveData();
 
         if (m_Points > data.maxPoints)
-        {
+       {
             
             data.playerName = DataPasser.Instance.playerName;
             data.maxPoints = m_Points;
@@ -117,17 +121,11 @@ public class MainManager : MonoBehaviour
             string json = JsonUtility.ToJson(data);
             File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
 
-        } else if (data.maxPoints == 0)
-        {
-           
-            data.playerName = DataPasser.Instance.playerName;
-            data.maxPoints = m_Points;
+            Debug.Log("Data was saved");
 
-            string json = JsonUtility.ToJson(data);
-            File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-        }
+        } 
 
-       
+
     }
 
     public void LoadData()
