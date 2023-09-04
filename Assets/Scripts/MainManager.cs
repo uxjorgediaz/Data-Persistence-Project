@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public Text MaximoScore;
+    [SerializeField] int maximoHigthScore;
+    [SerializeField] string playerNameHighScore;
 
     public GameObject GameOverText;
     
@@ -40,16 +43,13 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-
-      
-
-
+        
     
     }
 
     private void Update()
     {
-        MaxScore(DataPasser.Instance.playerName, m_Points);
+        MaxScore(playerName, maximoHigthScore);
 
         if (!m_Started)
         {
@@ -66,8 +66,6 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
-
-            
 
             if (Input.GetKeyDown(KeyCode.Space))
 
@@ -97,4 +95,57 @@ public class MainManager : MonoBehaviour
         MaximoScore.text = "Best Score : " + input + " : " +  points;
 
     }
+    [System.Serializable]
+    class SaveData
+    {
+        public string playerName;
+        public int maxPoints = 0;
+
+    }
+    public void PlayerNameAndScore()
+
+    {
+
+        SaveData data = new SaveData();
+
+        if (m_Points > data.maxPoints)
+        {
+            
+            data.playerName = DataPasser.Instance.playerName;
+            data.maxPoints = m_Points;
+
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+
+        } else if (data.maxPoints == 0)
+        {
+           
+            data.playerName = DataPasser.Instance.playerName;
+            data.maxPoints = m_Points;
+
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+        }
+
+       
+    }
+
+    public void LoadData()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+
+            maximoHigthScore = data.maxPoints;
+            playerNameHighScore = data.playerName;
+
+
+        }
+
+    }
+
 }
